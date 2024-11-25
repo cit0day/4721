@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMIGHTY X SOON</title>
+    <style>
+        @font-face {
+            font-family: 'Vespro';
+            src: url('Vespro.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sketch';
+            src: url('sketch.ttf') format('truetype');
+        }
+
+        /* General Body Styling */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            color: white;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Entry Screen Styling */
+        #entry-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Clickable Image Styling */
+        #click-image {
+            cursor: pointer;
+            width: 250px; /* Adjust size */
+            max-width: 100%;
+            height: auto;
+            filter: brightness(1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Image Hover Effect */
+        #click-image:hover {
+            filter: brightness(0.7);
+            transform: scale(1.05); /* Adds a zoom effect */
+        }
+
+        /* Main Content Styling */
+        #main-content {
+            text-align: center;
+            display: none; /* Initially hidden */
+        }
+
+        /* ALMIGHTY Styling */
+        .almighty {
+            font-family: 'Vespro', sans-serif;
+            font-size: 6rem;
+            margin: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Date Styling */
+        .date {
+            font-family: 'Sketch', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Entry Screen -->
+    <div id="entry-screen">
+        <img src="click-image.gif" id="click-image" alt="">
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <p class="almighty">ALMIGHTY</p>
+        <p class="date">01.01.25</p>
+    </div>
+
+    <!-- Audio -->
+    <audio id="entry-audio" src="intro.mp3" loop></audio>
+
+    <!-- Script -->
+    <script>
+        // Get DOM elements
+        const clickImage = document.getElementById("click-image");
+        const entryScreen = document.getElementById("entry-screen");
+        const mainContent = document.getElementById("main-content");
+        const audio = document.getElementById("entry-audio");
+
+        // Add click event to the image
+        clickImage.addEventListener("click", () => {
+            // Play the audio
+            audio.play();
+
+            // Hide the entry screen
+            entryScreen.style.display = "none";
+
+            // Show the main content
+            mainContent.style.display = "block";
+        });
+    </script>
+</body>
+</html>
